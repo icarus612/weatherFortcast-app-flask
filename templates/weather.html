@@ -1,0 +1,11 @@
+{% if weather != None %}
+    <h1>Todays weather is: {{ weather.main }}</h1>
+    <h2>{{ weather.description }}</h2>
+    <p> With a current temprature of {{ temp.temp }} &degF (max: {{ temp.temp_max }} &degF / min: {{ temp.temp_min }} &degF), and a humidity of {{ temp.humidity }}</p>
+{% endif %}
+<form action="{{ url_for('get_weather') }}" method="POST">
+    <input type='text' name="city" placeholder="City (required)" />
+    <input type='text' name="state" placeholder="State (optional)" />
+    <input type='text' name="country" placeholder="Country (required)" />
+    <input type="submit" value="Get Weather">
+</form>
