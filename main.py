@@ -14,7 +14,7 @@ def weather(city, country, state=None):
 	if state:
 		req = requests.get(f'https://openweathermap.org/data/2.5/weather?q={city},{state},{country}&units=imperial&appid=b6907d289e10d714a6e88b30761fae22').json()
 	else:
-		req = requests.get(f'https://openweathermap.org/data/2.5/weather?q={city},{country}&appid=b6907d289e10d714a6e88b30761fae22').json()
+		req = requests.get(f'https://openweathermap.org/data/2.5/weather?q={city},{country}&units=imperial&appid=b6907d289e10d714a6e88b30761fae22').json()
 	weather = req['weather'][0]
 	temp = req['main']
 	print(weather, temp)
