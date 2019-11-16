@@ -6,7 +6,7 @@
     {% else %}
         {% set deg = "C" %}
     {% endif %}
-    <p> With a current temprature of {{ temp.temp }} &degF (max: {{ temp.temp_max }} &deg{{ deg }} / min: {{ temp.temp_min }} &deg{{ deg }}), and a humidity of {{ temp.humidity }}</p>
+    <p> With a current temprature of {{ temp.temp }} &degF (max: {{ temp.temp_max }} &deg{{ deg }} / min: {{ temp.temp_min }} &deg{{ deg }}), and a humidity of {{ temp.humidity }}%.</p>
 {% endif %}
 {% if error != None %}
     <h2>{{ error }}</h2>
