@@ -9,16 +9,16 @@ def index():
 	error = request.args.get('error')
 	return render_template('weather.html', weather=None, error=error)
 
-@app.route('/weather', methods=['GET', 'POST'])
+@app.route('/weather')
 def weather():
 	city = request.args.get('city')
 	state = request.args.get('state')
 	country = request.args.get('country')
 	unit = request.args.get('unit')
 	if state:
-		req = requests.get(f'https://openweathermap.org/data/2.5/weather?q={city},{state},{country}&units={unit}&appid=b6907d289e10d714a6e88b30761fae22').json()
+		req = requests.get(f'https://api.openweathermap.org/data/2.5/weather?q={city},{state},{country}&units={unit}&appid=b6907d289e10d714a6e88b30761fae22').json()
 	else:
-		req = requests.get(f'https://openweathermap.org/data/2.5/weather?q={city},{country}&units={unit}&appid=b6907d289e10d714a6e88b30761fae22').json()
+		req = requests.get(f'https://api.openweathermap.org/data/2.5/weather?q={city},{country}&units={unit}&appid=b6907d289e10d714a6e88b30761fae22').json()
 	weather = req['weather'][0]
 	temp = req['main']
 	return render_template('weather.html', weather=weather, temp=temp, unit=unit, error=None)
