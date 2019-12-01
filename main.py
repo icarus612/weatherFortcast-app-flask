@@ -1,8 +1,10 @@
 from flask import Flask, render_template, url_for, request, redirect
 import requests
 import os
+from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
+Bootstrap(app)
 
 @app.route('/')
 def index():
@@ -16,9 +18,10 @@ def weather():
 	country = request.args.get('country')
 	unit = request.args.get('unit')
 	if state:
-		req = requests.get(f'https://api.openweathermap.org/data/2.5/weather?q={city},{state},{country}&units={unit}&appid=b6907d289e10d714a6e88b30761fae22').json()
+		req = requests.get(f'http://api.openweathermap.org/data/2.5/weather?q={city},{state},{country}&units={unit}&appid=da0cf3bb954fb7fd96d7095ca8c4cb5f').json()
 	else:
-		req = requests.get(f'https://api.openweathermap.org/data/2.5/weather?q={city},{country}&units={unit}&appid=b6907d289e10d714a6e88b30761fae22').json()
+		req = requests.get(f'http://api.openweathermap.org/data/2.5/weather?q={city},{country}&units={unit}&appid=da0cf3bb954fb7fd96d7095ca8c4cb5f').json()
+	print(req['weather'])
 	weather = req['weather'][0]
 	temp = req['main']
 	return render_template('weather.html', weather=weather, temp=temp, unit=unit, error=None)

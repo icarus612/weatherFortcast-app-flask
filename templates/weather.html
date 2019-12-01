@@ -1,24 +1,40 @@
-{% if weather != None %}
-    <h1>Todays weather is: {{ weather.main }}</h1>
-    <h2>{{ weather.description }}</h2>
-    {% if unit == "imperial" %}
-        {% set deg = "F" %}
-    {% else %}
-        {% set deg = "C" %}
-    {% endif %}
-    <p> With a current temprature of {{ temp.temp }} &degF (max: {{ temp.temp_max }} &deg{{ deg }} / min: {{ temp.temp_min }} &deg{{ deg }}), and a humidity of {{ temp.humidity }}%.</p>
-{% endif %}
-{% if error != None %}
-    <h2>{{ error }}</h2>
-{% endif %}
-
-<form action="{{ url_for('get_weather') }}" method="POST">
-    <input type='text' name="city" required placeholder="City (required)" />
-    <input type='text' name="state" placeholder="State (optional)" />
-    <input type='text' name="country" required placeholder="Country (required)" />
-    <select name="unit-type">
-        <option selected value="imperial">imperial</option>
-        <option value="metric">metric</option>
-    </select>    
-    <input type="submit" value="Get Weather">
-</form>
+{% extends "bootstrap/base.html" %}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='styles.css') }}">
+{% block content %}
+    <div class="container d-flex flex-row flex-wrap justify-content-center align-items-center text-center">
+        {% if weather != None %}
+            {% if unit == "imperial" %}
+                {% set deg = "F" %}
+            {% else %}
+                {% set deg = "C" %}
+            {% endif %}
+            <div class="">
+                <h1>
+                    Todays Weather Fortcast: {{ weather.main }}
+                </h1>
+                <div class="card">
+                    <h2>
+                        {{ weather.description }}
+                    </h2>
+                    <p> 
+                        With a current temprature of {{ temp.temp }} &degF (max: {{ temp.temp_max }} &deg{{ deg }} / min: {{ temp.temp_min }} &deg{{ deg }}), and a humidity of {{ temp.humidity }}%.
+                    </p>
+                </div>
+            </div>
+        {% endif %}
+        
+        {% if error != None %}
+            <h2>{{ error }}</h2>
+        {% endif %}
+        <form action="{{ url_for('get_weather') }}" method="POST">
+            <input type='text' name="city" required placeholder="City (required)" />
+            <input type='text' name="state" placeholder="State (optional)" />
+            <input type='text' name="country" required placeholder="Country (required)" />
+            <select class="select" name="unit-type">
+                <option selected value="imperial">imperial</option>
+                <option value="metric">metric</option>
+            </select>    
+            <input class="btn btn-primary" type="submit" value="Get Weather">
+        </form>
+    </div>
+{% endblock %}
