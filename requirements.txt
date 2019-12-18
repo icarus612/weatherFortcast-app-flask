@@ -7,4 +7,5 @@ requests==2.22.0
 requests-html==0.10.0
 Werkzeug==0.16.0
 flask-bootstrap4
+from flask_sslify import SSLify
 flask-fontawesome==0.1.2

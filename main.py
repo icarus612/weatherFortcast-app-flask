@@ -2,9 +2,13 @@ from flask import Flask, render_template, url_for, request, redirect
 import requests
 import os
 from flask_bootstrap import Bootstrap
+from flask_sslify import SSLify
 
 app = Flask(__name__)
+if 'DYNO' in os.environ: # only trigger SSLify if the app is running on Heroku
+    sslify = SSLify(app)
 Bootstrap(app)
+fa = FontAwesome(app)
 
 @app.route('/')
 def index():
