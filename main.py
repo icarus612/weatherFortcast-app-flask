@@ -48,5 +48,5 @@ def get_weather():
 
 port = int(os.environ.get('PORT', 5000)) 
 if __name__ == '__main__':
-	app.run(threaded=True, port=port)
+	app.run(threaded=True, debug=True, port=port)
 	

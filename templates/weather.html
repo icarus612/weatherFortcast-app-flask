@@ -28,11 +28,11 @@
         {% if error != None %}
             <h2>{{ error }}</h2>
         {% endif %}
-        <form action="{{ url_for('get_weather') }}" method="POST">
-            <input type='text' name="city" required placeholder="City (required)" />
-            <input type='text' name="state" placeholder="State (optional)" />
-            <input type='text' name="country" required placeholder="Country (required)" />
-            <select class="select" name="unit-type">
+        <form action="{{ url_for('get_weather') }}" class="d-flex flex-wrap container" method="POST">
+            <input type='text' name="city" class="col-12 col-md-8 col-lg-6 my-2" required placeholder="City (required)" />
+            <input type='text' name="state" class="col-12 col-md-8 col-lg-6 my-2"  placeholder="State (optional)" />
+            <input type='text' name="country" class="col-12 col-md-8 col-lg-6 my-2" required placeholder="Country (required)" />
+            <select class="select" class="col-12 col-md-8 col-lg-6 my-2"  name="unit-type">
                 <option selected value="imperial">imperial</option>
                 <option value="metric">metric</option>
             </select>    
