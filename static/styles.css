@@ -81,19 +81,31 @@ form {
 	color: #fafafa;
 }
 
-.clear {
-	background: #fcf6f5;
+.drizzle .clouds {
+	background: #A4C5D9;
+	color: #fafafa;
 }
 
-.sunny {
+.clear {
 	background: #ffd56e;
 	color: #fafafa;
 }
 
+.thunderstorm {
+	background: #6C6A70;
+	color: #eee;
+}
+
 .snow {
+	background: #fff;
+	color: #80A2CA;
+}
+
+.mist {
+	color: #777;
 	background: #effaff;
 }
 
-.hail {
-	background: #effaff;
+.thunderstorm {
+
 }
