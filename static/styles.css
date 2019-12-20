@@ -106,6 +106,7 @@ form {
 	background: #effaff;
 }
 
-.thunderstorm {
-
+.weather-img {
+	width: 70px;
+	height: 70px;
 }

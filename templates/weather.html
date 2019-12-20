@@ -9,20 +9,21 @@
     {% set w_color = "" %}
 {% endif %}
 {% block content %}
-    <div class="d-flex flex-wrap flex-column justify-content-center align-items-center text-center thunderstorm full-height">
+    <div class="d-flex flex-wrap flex-column justify-content-center align-items-center text-center {{ w_color }} mb-3 full-height">
         {% if weather != None %}
             {% if unit == "imperial" %}
                 {% set deg = "F" %}
             {% else %}
                 {% set deg = "C" %}
             {% endif %}
-            <div class="col-12 p-2">
+            <div class="col-10 p-2">
+                <img class="weather-img" src="http://openweathermap.org/img/wn/{{ weather.icon }}.png" />
                 <h1>
-                    Todays Weather Fortcast: {{ weather.main }}
+                    Fortcast: {{ weather.main }}
                 </h1>
                 <div class="">
                     <h2>
-                        {{ weather.description }}
+                        Details: {{ weather.description }}
                     </h2>
                     <p> 
                         With a current temprature of {{ temp.temp }} &degF (max: {{ temp.temp_max }} &deg{{ deg }} / min: {{ temp.temp_min }} &deg{{ deg }}), and a humidity of {{ temp.humidity }}%.
