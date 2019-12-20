@@ -9,7 +9,7 @@
     {% set w_color = "" %}
 {% endif %}
 {% block content %}
-    <div class="d-flex flex-wrap flex-column justify-content-center align-items-center text-center {{ w_color }} mb-3 full-height">
+    <div class="d-flex flex-wrap flex-column justify-content-center align-items-center text-center {{ w_color }} pb-3 full-height">
         {% if weather != None %}
             {% if unit == "imperial" %}
                 {% set deg = "F" %}
