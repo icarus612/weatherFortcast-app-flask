@@ -77,21 +77,23 @@ form {
 }
 
 .rain {
-
+	background: #92bad2;
+	color: #fafafa;
 }
 
 .clear {
-
+	background: #fcf6f5;
 }
 
 .sunny {
-
+	background: #ffd56e;
+	color: #fafafa;
 }
 
 .snow {
-
+	background: #effaff;
 }
 
 .hail {
-	
+	background: #effaff;
 }

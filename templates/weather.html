@@ -3,7 +3,7 @@
     {{ super() }}
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='styles.css') }}">
 {% endblock %}{% block content %}
-    <div class="d-flex flex-wrap flex-column justify-content-center align-items-center text-center full-height">
+    <div class="d-flex flex-wrap flex-column justify-content-center align-items-center text-center full-height {{ weather.main.lower() }}">
         {% if weather != None %}
             {% if unit == "imperial" %}
                 {% set deg = "F" %}
@@ -28,15 +28,17 @@
         {% if error != None %}
             <h2>{{ error }}</h2>
         {% endif %}
-        <form action="{{ url_for('get_weather') }}" class="d-flex py-4 px-2 flex-wrap container justify-content-center align-items-center" method="POST">
-            <input type='text' name="city" class="col-12 col-md-8 col-lg-5 m-2" required placeholder="City (required)" />
-            <input type='text' name="state" class="col-12 col-md-8 col-lg-5 m-2"  placeholder="State (optional)" />
-            <input type='text' name="country" class="col-12 col-md-8 col-lg-5 m-2" required placeholder="Country (required)" />
-            <select class="col-12 col-md-8 col-lg-5 m-2"  name="unit-type">
-                <option selected value="imperial">imperial</option>
-                <option value="metric">metric</option>
-            </select>    
-            <input class="btn button col-6 col-md-4 m-2" type="submit" value="Get Weather">
-        </form>
+        <div class="container d-flex justify-content-center align-items-center">
+            <form action="{{ url_for('get_weather') }}" class="d-flex flex-wrap col-lg-6 col-md-8 col-12 py-2 px-3 justify-content-end align-items-center" method="POST">
+                <input type='text' name="city" class="col-12 my-2" required placeholder="City (required)" />
+                <input type='text' name="state" class="col-12 my-2"  placeholder="State (optional)" />
+                <input type='text' name="country" class="col-12 my-2" required placeholder="Country (required)" />
+                <select class="col-12 my-2"  name="unit-type">
+                    <option selected value="imperial">imperial</option>
+                    <option value="metric">metric</option>
+                </select>    
+                <input class="btn button col-6 col-md-4 my-2" type="submit" value="Get Weather">
+            </form>
+        </div>
     </div>
 {% endblock %}
