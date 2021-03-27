@@ -1,6 +1,6 @@
 # The Flask Weather App
 
-## An Original Design By: Dev.Icarus
+## An Original Design By: dev.icarus
 ### Url: https://weather.devicarus.com
 
 #### My github: https://github.com/icarus612
